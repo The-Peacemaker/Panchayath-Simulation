@@ -72,7 +72,8 @@ For Software:
 *Full playthrough: oath ceremony, one crisis day with live timer, consequence newspaper, and ending reveal with share card.*
 
 # Additional Demos
-[Live deployment link — to be added]
+**Live deployment:** https://panchayath-president.netlify.app/
+*Play the full game in your browser — no install needed. For the complete experience, allow sound and upload a president photo at the oath ceremony.*
 
 ## Team Contributions
 - Benedict Chacko Mathew: Game architecture, state engine and balance design, audio/voice system and chaining, UI theme, SVG character sprites, deployment and documentation.
