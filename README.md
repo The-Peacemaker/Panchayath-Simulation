@@ -52,19 +52,59 @@ npm run preview
 ### Project Documentation
 For Software:
 
-# Screenshots (Add at least 3)
-![Screenshot1](docs/screenshot-home.png)
-*Home screen — title, meet-the-office strip and Take Charge button*
+# Screenshots
+![Oath ceremony — name entry, president photo upload and the comic vow](docs/screenshot-oath.png)
+*Oath ceremony — president name entry, photo upload with gold kasavu frame, Kuttappan's warning, and the solemn vow document before taking charge*
 
-![Screenshot2](docs/screenshot-day.png)
-*Day screen — Kuttappan briefing, 30-second timer, four dilemma options*
+![Day 1 gameplay — briefing, timer and four dilemma options](docs/screenshot-day.png)
+*Day 1 gameplay — live stat meters, Kuttappan's dramatic water-crisis briefing with whisper tip, sleeping Manikandan buddy row, 30-second timer, and four movie-soaked options (Lucifer! Drishyam!)*
 
-![Screenshot3](docs/screenshot-newspaper.png)
-*Chakkumvila Times consequence report with president mugshot and stat swings*
+![Gulf President ending with final stats and share card](docs/screenshot-ending.png)
+*Ending screen — president photo beside the verdict icon, full Malayalam ending story, final stat table with live deltas, WhatsApp share-card download, history board and replay buttons*
 
 # Diagrams
-![Workflow](docs/workflow.png)
-*Game loop: HOME → OATH → DAY (×5, 30s timer each) → CONSEQUENCE → ENDING. Voice chain: intro sting → briefing → reaction → verdict sting. Death check on every choice (support/treasury hit 0, or opposition hits 100).*
+
+## Game loop — how a presidency lives and dies
+
+```mermaid
+flowchart TD
+    HOME["HOME<br/>title + meet-the-office strip + Take Charge"] --> OATH["OATH CEREMONY<br/>name + photo upload + comic vow + seal"]
+    OATH --> DAY["DAY 1-5<br/>Kuttappan briefing + 30s timer + 4 options"]
+    DAY --> CONSEQ["CONSEQUENCE<br/>Chakkumvila Times + president mugshot + stat deltas"]
+    CONSEQ --> DEAD{"dead?<br/>support = 0<br/>treasury = 0<br/>opposition = 100"}
+    DEAD -->|yes| UNWORTHY(["YOGYANALLA<br/>fired on the spot,<br/>Kuttappan takes the chair"])
+    DEAD -->|no| MORE{"days left?"}
+    MORE -->|yes| DAY
+    MORE -->|no| FINAL{"final stats"}
+    FINAL --> HERO(["JANANAYAKAN<br/>support ≥ 70, treasury ≥ 50,<br/>opposition ≤ 45"])
+    FINAL --> CORRUPT(["COMMISSION KING<br/>support ≤ 30, treasury ≥ 50"])
+    FINAL --> GULF(["GULF PRESIDENT<br/>broke, hated, or hunted"])
+```
+
+*Five days, one timer each. Survive all five without collapsing a meter and the finale sorts you into hero, villain, fugitive — or the chair goes to Kuttappan mid-game.*
+
+## Audio chain — every screen talks
+
+```mermaid
+flowchart TD
+    A["Day arrives"] --> B{"Day 1?"}
+    B -->|yes| C["oath_complete sting"]
+    B -->|no| D["straight to briefing"]
+    C --> E["Kuttappan briefing"]
+    D --> E
+    E --> F["30s decision"]
+    F --> G["reaction voice"]
+    G --> H{"verdict score"}
+    H -->|bad| I["wrong_1 / 2 / 3 rotates"]
+    H -->|good| J["correct_1 / 2 / 3 rotates"]
+    H -->|chaotic| K["silence"]
+    I --> L["next day"]
+    J --> L
+    K --> L
+    L --> M["FINALE<br/>fanfare / trombone → transition bridge → verdict speech"]
+```
+
+*Recorded Malayalam clips chained with zero overlap; missing clips fall back to Malayalam TTS automatically, and fast click-throughs can never leak audio onto the next screen.*
 
 ### Project Demo
 # Video
