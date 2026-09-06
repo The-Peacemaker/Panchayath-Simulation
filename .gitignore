@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+
+# Template archives / local junk
+*.zip
+*.log
+.DS_Store
+Thumbs.db
+
+# Env / editor
+.env
+.env.*
+.vscode/
+.idea/
