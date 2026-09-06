@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useReducer, useEffect } from 'react';
 import { INITIAL_STATS, SCENARIOS, ENDINGS } from '../data/scenarios';
+import defaultPresidentPhoto from '../president-profile/president.jpg';
 import {
   playConch,
   playVoice,
@@ -20,7 +21,8 @@ const PHOTO_KEY = 'chakkumvila_president_photo_v1';
 const initialState = {
   screen: 'HOME', // 'HOME' | 'OATH' | 'DAY' | 'CONSEQUENCE' | 'ENDING'
   playerName: '',
-  playerPhoto: loadPhoto(), // dataURL from OathScreen upload, persisted
+  // Uploaded photo if present, otherwise the bundled default portrait
+  playerPhoto: loadPhoto() || defaultPresidentPhoto,
   currentDayIndex: 0, // 0 to 4 (Day 1 to 5)
   stats: { ...INITIAL_STATS },
   statDeltas: { support: 0, treasury: 0, opposition: 0 },
@@ -224,7 +226,9 @@ function getStoredPhoto() {
 
 function persistPhoto(dataUrl) {
   try {
-    if (dataUrl) {
+    // Never persist the bundled default portrait (its hashed URL changes per
+    // build) — only real uploads. A blank value resolves to default at runtime.
+    if (dataUrl && dataUrl !== defaultPresidentPhoto) {
       localStorage.setItem(PHOTO_KEY, dataUrl);
     } else {
       localStorage.removeItem(PHOTO_KEY);
