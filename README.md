@@ -107,11 +107,6 @@ flowchart TD
 *Recorded Malayalam clips chained with zero overlap; missing clips fall back to Malayalam TTS automatically, and fast click-throughs can never leak audio onto the next screen.*
 
 ### Project Demo
-# Video
-[Demo video link — to be added]
-*Full playthrough: oath ceremony, one crisis day with live timer, consequence newspaper, and ending reveal with share card.*
-
-# Additional Demos
 **Live deployment:** https://panchayath-president.netlify.app/
 *Play the full game in your browser — no install needed. For the complete experience, allow sound and upload a president photo at the oath ceremony.*
 
