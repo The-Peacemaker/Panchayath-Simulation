@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>ഫയൽ നം. 420 — പഞ്ചായത്ത് പ്രസിഡന്റ് Project Journal | Zero Blunders</title>
-<meta name="description" content="Project journal: how Team Zero Blunders built the Panchayat President Simulator for TinkerHub Useless Projects 3.0 — day by day, bug by bug." />
+<meta name="description" content="Project journal: how Team Zero Blunders built the Panchayat President Simulator for TinkerHub Useless Projects 3.0 — one night, hour by hour." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@500;600;700;800&family=Anek+Malayalam:wght@400;500;600;700;800&family=Manjari:wght@400;700&family=Noto+Sans+Malayalam:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -22,7 +22,7 @@
   .ribbon-top { height: 5px; background: linear-gradient(90deg, #991B1B, #DC2626, #991B1B); }
   header.hero { text-align: center; padding: 48px 20px 30px; position: relative; }
   .govt-line { display: inline-block; background: var(--seal); color: #fff; font-size: 12px; font-weight: 700; padding: 4px 14px; border-radius: 999px; letter-spacing: .08em; margin-bottom: 14px; }
-  h1.title { font-size: clamp(2rem, 6vw, 3.4rem); font-weight: 800; color: #2E1002; line-height: 1.25; }
+  h1.title { font-size: clamp(2rem, 6vw, 3.4rem); font-weight: 800; color: #2E1002; }
   .subtitle { color: var(--wood); font-weight: 600; margin-top: 6px; font-size: 1.05rem; }
   .stamp { display: inline-block; border: 3px dashed var(--seal); color: var(--seal); font-weight: 800; padding: 6px 16px; border-radius: 8px; transform: rotate(-4deg); margin: 18px 6px 0; font-size: .9rem; letter-spacing: .05em; background: rgba(4,120,87,.06); }
   .stamp.red { border-color: var(--ribbon); color: var(--ribbon); background: rgba(185,28,28,.06); transform: rotate(3deg); }
@@ -39,6 +39,10 @@
   .kuttappan .face { font-size: 1.8rem; line-height: 1; }
   .kuttappan b.who { display: block; font-style: normal; font-size: .75rem; color: var(--wood); letter-spacing: .04em; }
   code.commit { font-family: monospace; font-size: .8rem; background: #2E1002; color: #FBBF24; padding: 1px 7px; border-radius: 6px; }
+  .log { position: relative; margin-top: 14px; padding-left: 22px; border-left: 3px dashed var(--gold); display: grid; gap: 16px; }
+  .log-entry .t { font-family: monospace; font-weight: 800; font-size: .78rem; background: var(--ink); color: var(--gold-soft); padding: 2px 10px; border-radius: 999px; }
+  .log-entry h3 { font-size: 1.04rem; margin: 5px 0 3px; color: #2E1002; }
+  .log-entry p { font-size: .9rem; margin-bottom: 4px; }
   .buggrid { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 12px; }
   @media (min-width: 640px) { .buggrid { grid-template-columns: 1fr 1fr; } }
   .bug { background: #fff; border: 2px solid #E8D8B8; border-radius: 14px; padding: 16px; }
@@ -57,6 +61,23 @@
   .mate h3 { font-size: 1.1rem; }
   .mate .role { font-size: .78rem; font-weight: 800; color: var(--seal); letter-spacing: .05em; }
   .mate p { font-size: .86rem; margin-top: 6px; }
+  .memewall { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 14px; }
+  @media (min-width: 640px) { .memewall { grid-template-columns: 1fr 1fr; } }
+  .meme { background: #141414; color: #fff; border-radius: 16px; padding: 20px 18px; border: 4px solid #fff; box-shadow: 0 8px 0 rgba(0,0,0,.22); }
+  .meme .top { font-size: .78rem; font-weight: 800; opacity: .8; margin-bottom: 10px; letter-spacing: .06em; }
+  .meme .punch { font-size: 1.18rem; font-weight: 700; }
+  .meme.light { background: #fff; color: var(--ink); border-color: var(--ink); }
+  .meme .no { opacity: .5; text-decoration: line-through; }
+  .meme .yes { color: #FBBF24; }
+  .meme.light .yes { color: var(--seal); }
+  .pack { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 14px; }
+  @media (max-width: 640px) { .pack { grid-template-columns: 1fr 1fr; } }
+  .pack div { background: #fff; border: 2px solid #E8D8B8; border-radius: 12px; padding: 12px 8px; text-align: center; font-size: .76rem; font-weight: 700; color: var(--wood); }
+  .pack .e { font-size: 1.7rem; display: block; margin-bottom: 4px; }
+  .comic { width: 100%; height: auto; border-radius: 14px; border: 3px solid #0d1330; margin-top: 14px; background: #141b33; }
+  .credit { font-size: .82rem; color: var(--wood); margin-top: 10px; }
+  .blooper { display: flex; gap: 10px; align-items: flex-start; background: #fff; border: 2px dashed var(--ribbon); border-radius: 12px; padding: 10px 14px; font-size: .88rem; margin-top: 10px; }
+  .blooper .e { font-size: 1.2rem; line-height: 1.4; }
   .gallery { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 14px; }
   .gallery figure { background: #fff; border: 2px solid #E8D8B8; border-radius: 14px; overflow: hidden; }
   .gallery img { width: 100%; display: block; }
@@ -67,17 +88,6 @@
   @keyframes wig { 0%,100% { transform: rotate(-6deg); } 50% { transform: rotate(6deg); } }
   .floaty { display: inline-block; animation: floaty 3s ease-in-out infinite; }
   @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
-  .memewall { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 14px; }
-  @media (min-width: 640px) { .memewall { grid-template-columns: 1fr 1fr; } }
-  .meme { background: #141414; color: #fff; border-radius: 16px; padding: 20px 18px; border: 4px solid #fff; box-shadow: 0 8px 0 rgba(0,0,0,.22); }
-  .meme .top { font-size: .78rem; font-weight: 800; opacity: .8; margin-bottom: 10px; letter-spacing: .06em; }
-  .meme .punch { font-size: 1.18rem; font-weight: 700; }
-  .meme.light { background: #fff; color: var(--ink); border-color: var(--ink); }
-  .meme .no { opacity: .5; text-decoration: line-through; }
-  .meme .yes { color: #FBBF24; }
-  .meme.light .yes { color: var(--seal); }
-  .blooper { display: flex; gap: 10px; align-items: flex-start; background: #fff; border: 2px dashed var(--ribbon); border-radius: 12px; padding: 10px 14px; font-size: .88rem; margin-top: 10px; }
-  .blooper .e { font-size: 1.2rem; line-height: 1.4; }
 </style>
 </head>
 <body>
@@ -86,7 +96,7 @@
 
 <header class="hero wrap" style="padding-bottom:0">
   <span class="govt-line">കേരള സർക്കാർ • പഞ്ചായത്ത് രേഖാശേഖരം</span>
-  <h1 class="title fun">ഫയൽ നം. 420:<br/>ഒരു പ്രസിഡന്റിനെ<br/>ഉണ്ടാക്കിയ വിധം</h1>
+  <h1 class="title fun">ഫയൽ നം. 420:<br/>ഒരു രാത്രി, ഒരു പ്രസിഡന്റ്,<br/>പൂജ്യം ബ്ലണ്ടറുകൾ (മിക്കവാറും)</h1>
   <p class="subtitle">Project Journal — പഞ്ചായത്ത് പ്രസിഡന്റ് Simulator · Team Zero Blunders · Useless Projects 3.0</p>
   <div>
     <span class="stamp">ശേഖരിച്ചത്: പ്യൂൺ കുട്ടപ്പൻ</span>
@@ -103,63 +113,155 @@
   <div class="marigold"></div>
 
   <section class="chapter">
-    <span class="day-tag">അധ്യായം 0 · THE CALL</span>
-    <h2 class="ctitle fun">It started with the folder name</h2>
-    <p>Someone named a folder <code class="commit">USELESS-PROJECT</code> and suddenly we were researching TinkerHub's most unserious hackathon like it was a UPSC exam. Deep dive done, we struck gold in the official handbook: judging is <b>60% creativity, 20% implementation complexity, 20% cross-disciplinary approach</b>. Translation — the IDEA is the whole game. No pitch decks. No "real-world impact". Just one night and whatever wonderfully pointless thing comes to mind.</p>
-    <div class="kuttappan"><span class="face">👨‍💼</span><span><b class="who">കുട്ടപ്പൻ, ഫയൽ എഴുത്തുകാരൻ</b>"സാർ, 60% ക്രിയേറ്റിവിറ്റി എന്ന് കേട്ടപ്പോൾ തന്നെ എനിക്ക് മനസ്സിലായി — ഇത് നമ്മുടെ പണിയാണ്."</span></div>
+    <span class="day-tag">രാത്രി രേഖ · NIGHT LOG: SEP 5, 10 PM → SEP 6, 7:30 AM</span>
+    <h2 class="ctitle fun">Everything below happened in one night. We have the timestamps to prove it.</h2>
+    <p>This isn't a summary written after the fact. It's the night itself — reconstructed from commit times, file timestamps, ffmpeg readouts and one very tired group chat. If it reads like we were losing our minds, that's because the file numbers check out.</p>
+    <div class="log">
+      <div class="log-entry">
+        <span class="t">10:04 PM</span>
+        <h3 class="fun">The folder name made us do it</h3>
+        <p>It started the way all bad decisions start: somebody created a folder called <code class="commit">USELESS-PROJECT</code> and said "broo, aura farming tomorrow". So we researched TinkerHub's make-a-thon like it was a UPSC exam — past winners, the handbook, the starter repo with its 1.2k forks. Then the line that decided everything: judging is <b>60% creativity, 20% complexity, 20% cross-disciplinary</b>. The IDEA is the whole game. No decks. No "impact". Just one night and whatever pointless thing comes to mind.</p>
+      </div>
+      <div class="log-entry">
+        <span class="t">10:41 PM</span>
+        <h3 class="fun">Five ideas enter. One panchayat leaves.</h3>
+        <p>On call, first chai: a chai-locking machine, an Amma chatbot, an over-engineered canteen, a mystery ARG app, an AI that judges your surroundings. All software-only, all Malayalam-soaked. Then the sentence that ended the debate — <i>what if YOU are the panchayat president and every option is terrible?</i> Fully Malayalam audio and text. A timer. No correct answers, only funny ones. Second chai ordered. Decision locked.</p>
+      </div>
+      <div class="log-entry">
+        <span class="t">11:15 PM</span>
+        <h3 class="fun">Scaffold first, comedy second</h3>
+        <p>Vite + React + Tailwind, Kerala-office tokens, four Malayalam font families loaded because one is never enough. <code class="commit">package.json</code> was born at 22:27 and the night officially had a pulse. First fight of the night: Cinzel vs Baloo Chettan 2 for headings. Baloo won by unanimous vote (2–0).</p>
+      </div>
+      <div class="log-entry">
+        <span class="t">11:52 PM</span>
+        <h3 class="fun">150 lines to run a government</h3>
+        <p>A tiny <code class="commit">useReducer</code> engine now runs the entire republic: HOME → OATH → DAY ×5 → CONSEQUENCE → ENDING, with a Wall of Presidents in localStorage for the fallen. Committed as <code class="commit">4a969f2</code>, then the engine as <code class="commit">a134065</code>. Skeleton standing. Soul pending.</p>
+      </div>
+      <div class="log-entry">
+        <span class="t">12:30 AM</span>
+        <h3 class="fun">The writing room (chai #3, gone cold)</h3>
+        <p>Six crises drafted in one sitting: water mafia, street-dog unions, exam-eve blackouts, one hall with two weddings, a collector-inspection final boss. Every option stuffed with the movies we grew up on — Lucifer mass entries, Drishyam register frauds, Kilukkam mass weddings, Sandesham-style protests. House rule, written on metaphorical wall: <b>no option may be clearly right, and every option must hurt something.</b> The comedy IS the dilemma.</p>
+      </div>
+      <div class="log-entry">
+        <span class="t">12:47 AM</span>
+        <h3 class="fun">Footsteps. Mentors. (Full story in the next file section.)</h3>
+        <p>The game was barely half-built — timer working, voices still robots, elephant freshly unemployed. Then the midnight inspection happened, and the whole night changed direction. Kuttappan filed it under <i>Exhibit: Hope</i>. Details below. Do not skip.</p>
+      </div>
+      <div class="log-entry">
+        <span class="t">1:30 AM</span>
+        <h3 class="fun">The great stat firing, powered by mentor adrenaline</h3>
+        <p>Running on pure "this can actually win" energy, we did the bravest thing of the night: <b>fired elephant-happiness and amma-approval</b> — two stats that never decided anything — and hired <b>പ്രതിപക്ഷം (Opposition)</b> in their place. Starts at 20, kills you at 100 with a no-confidence motion. Manikandan the elephant was demoted to mascot. He took it personally (he now wiggles).</p>
+      </div>
+      <div class="log-entry">
+        <span class="t">2:05 AM</span>
+        <h3 class="fun">Recording crimes into a phone mic</h3>
+        <p>Thirteen clips. Full overacting. Phone held like a microphone two centimetres from the mouth while the neighbourhood slept. A 47-slot map (<code class="commit">voiceLines.js</code>) was built so that dropping an MP3 into a folder wires it into the game with zero code changes. One clip — wrong_1 — came out at whisper volume. Nobody noticed. Yet.</p>
+      </div>
+      <div class="log-entry">
+        <span class="t">2:40 AM</span>
+        <h3 class="fun">"Bro, how are you building like THIS?"</h3>
+        <p>Word from the midnight inspection had travelled. Participants started drifting to our desks between timer ticks, asking how the voices chained, how the newspaper accused whoever clicked fastest, how a whole government fit inside one reducer. We demoed. They laughed. Somebody's 2 AM restarted. That hour is the entire point of this hackathon.</p>
+      </div>
+      <div class="log-entry">
+        <span class="t">3:15 AM</span>
+        <h3 class="fun">The conch that turned out to be an elephant</h3>
+        <p>Clicked Take Charge to test the oath flow. A majestic synth conch blast rang out — dual oscillators, 210→285 Hz, genuinely proud of it. Both of us, simultaneously: <i>"...was that an elephant?"</i> It was retired from that moment within minutes. Your intro recording owns it now. Some sounds are too powerful for 3 AM.</p>
+      </div>
+      <div class="log-entry">
+        <span class="t">3:50 AM</span>
+        <h3 class="fun">Catching ourselves winning</h3>
+        <p>The ugliest discovery of the night: stupid decisions kept winning. Joke options secretly paid support points; the hero ending ignored opposition entirely. So at nearly 4 AM we did the most over-engineered thing possible — <b>wrote a Node script that simulated 8 full playstyles through the real game data.</b> Splurge-everything: dead Day 5, bankrupt. Total silence: dead Day 4. Evil genius: Commission King at opposition 90. Balance v3 shipped with proof, not vibes.</p>
+      </div>
+      <div class="log-entry">
+        <span class="t">4:40 AM</span>
+        <h3 class="fun">Declutter surgery + the mustache</h3>
+        <p>The Day screen had twin Kuttappans, cards inside cards, labels shouting over the story. Merged into ONE briefing card, timer shrunk to a pill. Then, because sleep was already a rumour, hand-drew an SVG sprite cast — Kuttappan with five mood faces (including X-eyed dead), Manikandan with three states, a smiling coconut. Somewhere in there, a mustache curl took twenty minutes. Worth every pixel.</p>
+      </div>
+      <div class="log-entry">
+        <span class="t">5:30 AM</span>
+        <h3 class="fun">ffmpeg tells the truth</h3>
+        <p>That whisper clip? Measured: peak <b>-19.9 dB</b>. Boosted +18.9 dB, then peak-normalized all 12 clips to the same level so the hero ending wouldn't deafen anyone after the unworthy one whispered. Democracy of decibels, signed and sealed.</p>
+      </div>
+      <div class="log-entry">
+        <span class="t">6:15 AM</span>
+        <h3 class="fun">Push rejected. Heart stopped. Rebase survived.</h3>
+        <p>Five honest feature batches, ready to ship — and the remote had moved (teammate's README edit). Push rejected at dawn is a special kind of horror. Fetched, read the diff, rebased clean, pushed green. Never force-push a shared hackathon repo. Tattoo it.</p>
+      </div>
+      <div class="log-entry">
+        <span class="t">7:30 AM</span>
+        <h3 class="fun">Netlify live. File closed (for now).</h3>
+        <p>Production build clean, audio verified 200 + audio/mpeg over HTTP, live link in the README. The president's portrait defaults into every newspaper wanted-box. Sleep: still a rumour. Aura: farmed.</p>
+      </div>
+    </div>
+    <div class="kuttappan"><span class="face">📁</span><span><b class="who">കുട്ടപ്പൻ, രേഖാശേഖരം</b>"സർ, എല്ലാ സമയവും ഫയലിൽ ഉണ്ട്. Commit hash-കളും, dB കണക്കുകളും, rebate-⁄rebasing-ഉം. കള്ളം പറഞ്ഞാൽ പിടിക്കപ്പെടും."</span></div>
   </section>
 
   <section class="chapter">
-    <span class="day-tag">അധ്യായം 1 · FIVE IDEAS, ONE CHAIR</span>
-    <h2 class="ctitle fun">Brainstorming the uselessness</h2>
-    <p>We drafted five concepts — a chai-locking machine, an Amma chatbot, an over-engineered canteen app, a mystery ARG app, an AI that judges your surroundings. All software-only, all Malayalam-soaked. Then somebody said the magic words: <b>"Panchayat President Simulator"</b> — a game where YOU run a Kerala village into the ground, one sarcastic decision at a time. Fully Malayalam audio and text. Timer ticking. No correct answers, only funny ones. Locked in minutes.</p>
+    <span class="day-tag">ശേഷം · AFTERMATH</span>
+    <h2 class="ctitle fun">The days after the night</h2>
+    <p>The night built it; the following days hardened it. A phantom-audio leak (Chrome firing <i>end</i> events for cancelled speech — a ghost concert on untouched screens) got exorcised with token guards. An absolute-path 404 got one line of invincibility (<code class="commit">base: './'</code>). Screenshots were captured mid-game like crime-scene photos. And this journal — File 420 — was opened, because a night like that refuses to stay undocumented.</p>
   </section>
 
   <section class="chapter">
-    <span class="day-tag">അധ്യായം 2 · FOUNDATION</span>
-    <h2 class="ctitle fun">Scaffold first, comedy second</h2>
-    <p>Vite + React 18 + Tailwind. A tiny <code class="commit">useReducer</code> game engine (~150 lines) drives everything: HOME → OATH → DAY ×5 → CONSEQUENCE → ENDING. Stats, timers, endings, a "Wall of Presidents" in localStorage. Committed as <code class="commit">4a969f2</code> scaffold, then <code class="commit">a134065</code> engine. The skeleton was up in hours — the soul took much longer.</p>
-  </section>
-
-  <section class="chapter">
-    <span class="day-tag">അധ്യായം 3 · THE WRITING ROOM</span>
-    <h2 class="ctitle fun">Six crises, zero mercy</h2>
-    <p>Water mafia. Street-dog unions. Exam-eve blackouts. One hall, two weddings. A collector inspection final boss (plus a festival-fund scandal spare). Every option stuffed with Malayalam cinema references — Lucifer mass entries, Drishyam register frauds, Kilukkam mass weddings, Sandesham-style protests. The house rule for writing: <b>no option may be clearly right, and every option must hurt something.</b> The comedy IS the dilemma.</p>
-    <div class="kuttappan"><span class="face">😅</span><span><b class="who">കുട്ടപ്പൻ</b>"സർ, ലൂസിഫർ സ്റ്റൈലിൽ ടാങ്കർ കൊണ്ടുവന്നാൽ ഖജനാവ് കാലിയാകും. പക്ഷേ എൻട്രി ഗംഭീരമായിരിക്കും."</span></div>
-  </section>
-
-  <section class="chapter">
-    <span class="day-tag">അധ്യായം 4 · THE GREAT STAT SWAP</span>
-    <h2 class="ctitle fun">Killing our darlings (elephant joy + amma approval)</h2>
-    <p>Playtesting hurt: four stats were too much to read, and two of them (elephant happiness, amma approval) never decided anything. So we executed them and crowned a single replacement — <b>പ്രതിപക്ഷം (Opposition)</b>, starting at 20, killing you at 100 via no-confidence motion. Manikandan the elephant survived as mascot, but now he <i>joins the protest</i> when opposition crosses 70. Fewer meters, ten times the tension.</p>
-  </section>
-
-  <section class="chapter">
-    <span class="day-tag">അധ്യായം 5 · THE EXPLOIT</span>
-    <h2 class="ctitle fun">The day we caught ourselves winning</h2>
-    <p>Disaster: stupid decisions kept winning. Joke options secretly gave support points, the hero ending ignored opposition entirely, and one honest Day-5 pick erased all sins. So we did the most over-engineered thing possible — <b>wrote a Node script that simulated 8 full playstyles</b> through the real game data. Splurge-everything: dead Day 5, bankrupt. Total silence: dead Day 4. Evil genius run: Commission King at opposition 90. Smart mix: hero by exact margins. Balance v3 shipped with proof, not vibes.</p>
-    <div class="kuttappan"><span class="face">😎</span><span><b class="who">കുട്ടപ്പൻ</b>"കണക്ക് പറഞ്ഞു സർ — മിണ്ടാതിരുന്നാൽ മരണം. ഇത് ജനാധിപത്യമല്ല, ഗണിതമാണ്."</span></div>
-  </section>
-
-  <section class="chapter">
-    <span class="day-tag">അധ്യായം 6 · DECLUTTER + SPRITES</span>
-    <h2 class="ctitle fun">Two Kuttappans walk into a screen…</h2>
-    <p>…and one had to go. The Day screen had twin Kuttappans, cards inside cards, labels shouting over the actual story. We merged everything into ONE briefing card, shrank the timer to a slim pill, and replaced every emoji face with a <b>hand-drawn SVG sprite cast</b> — Kuttappan with five mood faces (cool, worried, panic, shock, X-eyed dead), Manikandan with three states (sleeping with Z's, calm, rampaging), plus a smiling coconut mascot for the header. Zero image dependencies, infinite charm.</p>
-  </section>
-
-  <section class="chapter">
-    <span class="day-tag">അധ്യായം 7 · FINDING THE VOICE</span>
-    <h2 class="ctitle fun">13 clips of pure Malayalam chaos</h2>
-    <p>Then came the recordings — welcome speech, pledge reaction, day transitions, rotating wrong/correct-answer stingers, three ending speeches — all performed with full overacting. We built a slot-map engine (<code class="commit">voiceLines.js</code>, 47 slots) where dropping an MP3 into a folder wires it into the game with zero code changes, chained playback (sting → briefing → verdict), a verdict scorer that decides praise vs roast, and TTS fallback so nothing is ever silent. Then ffmpeg told us one clip peaked at <b>-19.9 dB</b> — a whisper. Boosted +18.9 dB, then peak-normalized all 12 clips to the same level. Democracy of decibels.</p>
-  </section>
-
-  <section class="chapter">
-    <span class="day-tag">അർദ്ധരാത്രി · THE MIDNIGHT INSPECTION</span>
+    <span class="day-tag">അർദ്ധരാത്രി · THE MIDNIGHT INSPECTION (FULL FILE)</span>
     <h2 class="ctitle fun">The night the mentors laughed</h2>
     <p>Around midnight the hall went quiet except for our corner — timer ticking, robot Kuttappan shouting half-finished Malayalam, a president who could die of potholes. The game was barely half-built. Then the mentors came on their rounds. Then the staff coordinators. We showed them the mess: the evidence board, the mugshot newspaper, the elephant that had just been fired from the stats.</p>
     <p>They laughed. Not the polite kind — the real kind, the kind that makes neighbouring tables turn around. And then came the sentence that rewired the entire night: <b>"ഇതിന് ജയിക്കാൻ കഴിയും — this can actually win."</b> Two dead-eyed developers rebooted on the spot. Somebody's 2 AM restarted. Kuttappan filed it under <i>Exhibit: Hope</i>.</p>
     <p>Word travelled fast. Soon other participants were drifting to our desks — <i>"bro, how are you building like THIS?"</i> — asking how the voices chained together, how the newspaper accused whoever clicked fastest, how an entire government fit inside one reducer. We demoed between timer ticks. They laughed. They took notes. For about an hour at midnight, Chakkumvila was the capital of the hackathon.</p>
     <div class="kuttappan"><span class="face">🍵</span><span><b class="who">കുട്ടപ്പൻ, ചായ കണക്ക്</b>"മെന്റർമാർക്ക് ചായ കൊടുക്കാൻ ഖജനാവിൽ കാശില്ലായിരുന്നു സർ. അതുകൊണ്ട് കടമായി എഴുതി വെച്ചു."</span></div>
+    <svg class="comic" viewBox="0 0 720 260" font-family="'Noto Sans Malayalam','Anek Malayalam',sans-serif" role="img" aria-label="Midnight inspection comic: mentors arrive, mentors laugh, mentors believe">
+      <rect x="0" y="0" width="720" height="260" rx="12" fill="#141b33" />
+      <line x1="240" y1="0" x2="240" y2="260" stroke="#0d1330" stroke-width="3" />
+      <line x1="480" y1="0" x2="480" y2="260" stroke="#0d1330" stroke-width="3" />
+      <circle cx="660" cy="36" r="17" fill="#FBBF24" />
+      <circle cx="60" cy="30" r="2" fill="#fff" /><circle cx="130" cy="52" r="2" fill="#fff" /><circle cx="330" cy="26" r="2" fill="#fff" /><circle cx="420" cy="56" r="2" fill="#fff" /><circle cx="560" cy="66" r="2" fill="#fff" />
+      <text x="14" y="24" font-size="13" font-weight="800" fill="#FBBF24">12:47 AM — footsteps.</text>
+      <text x="254" y="24" font-size="13" font-weight="800" fill="#FBBF24">"Show us what you have."</text>
+      <text x="494" y="24" font-size="13" font-weight="800" fill="#FBBF24">"This can actually win."</text>
+      <g stroke="#F5E6C8" stroke-width="3" stroke-linecap="round" fill="none">
+        <rect x="30" y="180" width="180" height="12" fill="#78350F" stroke="none" />
+        <rect x="95" y="148" width="52" height="34" fill="#0d1330" stroke="#FBBF24" stroke-width="2" />
+        <rect x="100" y="153" width="42" height="20" fill="#FBBF24" opacity="0.85" stroke="none" />
+        <circle cx="62" cy="128" r="11" fill="none" />
+        <line x1="62" y1="139" x2="62" y2="180" />
+        <line x1="62" y1="152" x2="46" y2="166" />
+        <line x1="62" y1="152" x2="80" y2="162" />
+        <circle cx="172" cy="124" r="11" fill="none" />
+        <line x1="172" y1="135" x2="172" y2="180" />
+        <line x1="172" y1="148" x2="156" y2="160" />
+        <line x1="172" y1="148" x2="190" y2="158" />
+      </g>
+      <text x="30" y="216" font-size="13" fill="#fff">half-built game.</text>
+      <text x="30" y="236" font-size="13" fill="#fff">full terror.</text>
+      <g stroke="#F5E6C8" stroke-width="3" stroke-linecap="round" fill="none">
+        <rect x="270" y="180" width="180" height="12" fill="#78350F" stroke="none" />
+        <rect x="335" y="148" width="52" height="34" fill="#0d1330" stroke="#FBBF24" stroke-width="2" />
+        <rect x="340" y="153" width="42" height="20" fill="#FBBF24" opacity="0.85" stroke="none" />
+        <text x="344" y="169" font-size="14" font-weight="800" fill="#0d1330" stroke="none">22s</text>
+        <circle cx="300" cy="120" r="12" fill="none" />
+        <line x1="300" y1="132" x2="300" y2="180" />
+        <line x1="300" y1="146" x2="284" y2="158" />
+        <line x1="300" y1="146" x2="318" y2="156" />
+        <circle cx="420" cy="118" r="12" fill="none" />
+        <line x1="420" y1="130" x2="420" y2="180" />
+        <line x1="420" y1="144" x2="404" y2="156" />
+        <line x1="420" y1="144" x2="438" y2="154" />
+      </g>
+      <text x="272" y="216" font-size="15" font-weight="800" fill="#FBBF24" transform="rotate(-4 340 210)">HA HA HA!</text>
+      <g stroke="#F5E6C8" stroke-width="3" stroke-linecap="round" fill="none">
+        <rect x="510" y="150" width="120" height="30" rx="14" fill="#fff" stroke="none" />
+        <circle cx="560" cy="104" r="12" fill="none" />
+        <line x1="560" y1="116" x2="560" y2="180" />
+        <line x1="560" y1="130" x2="544" y2="142" />
+        <line x1="560" y1="130" x2="578" y2="140" />
+        <rect x="620" y="96" width="56" height="26" rx="4" fill="none" stroke="#e11d48" stroke-width="3" />
+        <rect x="624" y="100" width="8" height="18" fill="#e11d48" stroke="none" />
+        <text x="638" y="114" font-size="12" font-weight="800" fill="#fff" stroke="none">4%</text>
+      </g>
+      <text x="514" y="166" font-size="12" font-weight="700" fill="#0d1330">hope: 100%</text>
+      <text x="494" y="216" font-size="13" fill="#fff">batteries: 4%.</text>
+      <text x="494" y="236" font-size="13" fill="#fff">hearts: 100%.</text>
+    </svg>
   </section>
 
   <section class="chapter">
@@ -194,16 +296,9 @@
   </section>
 
   <section class="chapter">
-    <span class="day-tag">അധ്യായം 9 · SHIPPING</span>
-    <h2 class="ctitle fun">Five commits and a rebase survival story</h2>
-    <p>Shipped in honest feature batches — scaffold, engine, screens, voices, docs — then survived a real-world scare: the remote had moved (teammate's README edit), push rejected, fetched, rebased cleanly, pushed green. Live on Netlify, README carries the template format, screenshots, mermaid diagrams and the live link. The president's portrait (<code class="commit">president.jpg</code>) now defaults into every newspaper wanted-box.</p>
-    <div class="kuttappan"><span class="face">💀</span><span><b class="who">കുട്ടപ്പൻ, പുതിയ അഡ്മിനിസ്ട്രേറ്റർ (താത്കാലികം)</b>"കസേര കിട്ടി സർ. പക്ഷേ ഫയൽ 420 ഒരിക്കലും അടയ്ക്കില്ല."</span></div>
-  </section>
-
-  <section class="chapter">
     <span class="day-tag">മീമുകൾ · THE MEME WALL</span>
     <h2 class="ctitle fun">Official propaganda of the republic</h2>
-    <p>Every great government runs on messaging. Ours ran on these, taped to the wall above the laptops:</p>
+    <p>Every great government runs on messaging. Ours ran on these, taped to the wall above the laptops. Formats studied from the classics at <a href="https://memes.co.in/">memes.co.in</a> — then redrawn by our own hands, because the panchayat respects copyright (mostly). No stolen pixels were harmed.</p>
     <div class="memewall">
       <div class="meme">
         <div class="top">SOLVING REAL PROBLEMS</div>
@@ -231,6 +326,27 @@
         <div class="punch">"So the timer hits zero and—"<br/>Them: "Say no more. Where do we vote?"</div>
       </div>
     </div>
+    <h2 class="ctitle fun" style="margin-top:22px">Overnight starter pack</h2>
+    <p>Standard issue kit for one (1) useless make-a-thon night. No refunds.</p>
+    <div class="pack">
+      <div><span class="e">💻</span>laptop at 4%, charger missing</div>
+      <div><span class="e">🎙️</span>phone mic 2cm from mouth</div>
+      <div><span class="e">⏱️</span>timer stuck at 22s</div>
+      <div><span class="e">📣</span>opposition at 99</div>
+      <div><span class="e">🍵</span>cold tea #4</div>
+      <div><span class="e">👨‍💼</span>Kuttappan demanding a raise</div>
+    </div>
+  </section>
+
+  <section class="chapter">
+    <span class="day-tag">NG ടേക്കുകൾ · BLOOPERS</span>
+    <h2 class="ctitle fun">Filed under "oops"</h2>
+    <div class="blooper"><span class="e">🎙️</span><span>Recorded a wrong-answer sting at whisper volume (-19.9 dB). Boosted +18.9 dB. Democracy restored at full volume.</span></div>
+    <div class="blooper"><span class="e">🐘</span><span>Composed a majestic conch fanfare. Every tester heard an elephant. Retired with full honours.</span></div>
+    <div class="blooper"><span class="e">👻</span><span>Chrome cancelled our speech and threw a ghost concert on the next screen. Exorcised with token guards.</span></div>
+    <div class="blooper"><span class="e">🗑️</span><span>Deleted the research file twice. It had it coming. (It survives in git history.)</span></div>
+    <div class="blooper"><span class="e">🪑</span><span>Gave Kuttappan the chair in four different endings. He has stopped returning our calls.</span></div>
+    <div class="blooper"><span class="e">📣</span><span>Built an opposition meter so aggressive it nearly impeached us during testing. Working as intended.</span></div>
   </section>
 
   <section class="chapter">
@@ -244,17 +360,6 @@
       <div><b>SVG sprites:</b> five moods of a clerk drawn in ~100 lines of SVG beat any emoji — and weigh nothing.</div>
       <div><b>Git under fire:</b> fetch → read the diff → rebase → push. Never force-push a shared hackathon repo.</div>
     </div>
-  </section>
-
-  <section class="chapter">
-    <span class="day-tag">NG ടേക്കുകൾ · BLOOPERS</span>
-    <h2 class="ctitle fun">Filed under "oops"</h2>
-    <div class="blooper"><span class="e">🎙️</span><span>Recorded a wrong-answer sting at whisper volume (-19.9 dB). Boosted +18.9 dB. Democracy restored at full volume.</span></div>
-    <div class="blooper"><span class="e">🐘</span><span>Composed a majestic conch fanfare. Every tester heard an elephant. Retired with full honours.</span></div>
-    <div class="blooper"><span class="e">👻</span><span>Chrome cancelled our speech and threw a ghost concert on the next screen. Exorcised with token guards.</span></div>
-    <div class="blooper"><span class="e">🗑️</span><span>Deleted the research file twice. It had it coming. (It survives in git history.)</span></div>
-    <div class="blooper"><span class="e">🪑</span><span>Gave Kuttappan the chair in four different endings. He has stopped returning our calls.</span></div>
-    <div class="blooper"><span class="e">📣</span><span>Built an opposition meter so aggressive it nearly impeached us during testing. Working as intended.</span></div>
   </section>
 
   <section class="chapter">
