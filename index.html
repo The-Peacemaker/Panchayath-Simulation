@@ -96,6 +96,17 @@
   .vidgrid figcaption { padding: 10px 12px; font-size: .8rem; font-weight: 700; color: var(--wood); }
   .srclink { font-size: .78rem; color: var(--wood); margin-top: 10px; }
   .srclink a { color: var(--seal); font-weight: 700; }
+  #musictoggle { position: fixed; right: 16px; bottom: 16px; z-index: 60; display: flex; align-items: center; gap: 8px; background: linear-gradient(135deg,#FFFDF0,#FEF3C7); border: 3px solid var(--gold); border-radius: 999px; padding: 9px 14px; font-family: inherit; font-weight: 800; font-size: .8rem; color: var(--wood); cursor: pointer; box-shadow: 0 6px 16px rgba(69,26,3,.35); }
+  #musictoggle:hover { transform: translateY(-1px); }
+  #musictoggle .ic { font-size: 1.1rem; }
+  #musictoggle.off { opacity: .75; border-style: dashed; }
+  #musictoggle .eq { display: inline-flex; gap: 2px; align-items: flex-end; height: 14px; }
+  #musictoggle .eq i { width: 3px; background: var(--seal); border-radius: 2px; animation: eqb 0.9s ease-in-out infinite; }
+  #musictoggle .eq i:nth-child(2) { animation-delay: .2s; height: 70%; }
+  #musictoggle .eq i:nth-child(3) { animation-delay: .4s; }
+  #musictoggle .eq i:nth-child(1) { height: 100%; }
+  #musictoggle.off .eq { display: none; }
+  @keyframes eqb { 0%,100% { height: 5px; } 50% { height: 14px; } }
 </style>
 </head>
 <body>
@@ -381,5 +392,45 @@
     <p style="margin-top:12px;font-size:.92rem"><i>P.S. Dear judges — if laughter is a metric, File 420 already won. A hardware kit would just make it official. — Kuttappan (clerk, witness, future administrator)</i></p>
   </footer>
 </div>
+<audio id="bgm" loop preload="metadata" src="audio/bgm.mp3"></audio>
+<button id="musictoggle" class="off" aria-label="Background music on/off" title="പശ്ചാത്തല സംഗീതം">
+  <span class="ic">🔇</span>
+  <span class="eq" aria-hidden="true"><i></i><i></i><i></i></span>
+  <span class="tx">പാട്ട് ഓൺ ചെയ്യൂ</span>
+</button>
+<script>
+(function () {
+  var KEY = 'file420_bgm';
+  var audio = document.getElementById('bgm');
+  var btn = document.getElementById('musictoggle');
+  var want = null;
+  try { want = localStorage.getItem(KEY); } catch (e) {}
+  audio.volume = 0.35;
+  function render() {
+    var playing = !audio.paused;
+    btn.classList.toggle('off', !playing);
+    btn.querySelector('.ic').textContent = playing ? '🎵' : '🔇';
+    btn.querySelector('.tx').textContent = playing ? 'പാട്ട് ഓടുന്നു' : 'പാട്ട് ഓൺ ചെയ്യൂ';
+  }
+  function save() {
+    try { localStorage.setItem(KEY, audio.paused ? 'off' : 'on'); } catch (e) {}
+  }
+  btn.addEventListener('click', function () {
+    if (audio.paused) { audio.play().then(render).catch(render); }
+    else { audio.pause(); }
+    save(); render();
+  });
+  audio.addEventListener('play', render);
+  audio.addEventListener('pause', render);
+  // Browsers block audible autoplay: begin on the first tap anywhere (once),
+  // unless the reader previously switched it off.
+  function firstTouch() {
+    document.removeEventListener('pointerdown', firstTouch);
+    if (want !== 'off' && audio.paused) { audio.play().then(render).catch(function () {}); }
+  }
+  document.addEventListener('pointerdown', firstTouch);
+  render();
+})();
+</script>
 </body>
 </html>
