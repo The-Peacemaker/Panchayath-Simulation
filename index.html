@@ -7,15 +7,16 @@
 <meta name="description" content="Project journal: how Team Zero Blunders built the Panchayat President Simulator for TinkerHub Useless Projects 3.0 — day by day, bug by bug." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@500;600;700;800&family=Noto+Sans+Malayalam:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@500;600;700;800&family=Anek+Malayalam:wght@400;500;600;700;800&family=Manjari:wght@400;700&family=Noto+Sans+Malayalam:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
     --paper: #FDFBF5; --parchment: #FBF5E6; --ink: #451A03; --wood: #78350F;
     --gold: #D97706; --gold-soft: #FEF3C7; --seal: #047857; --ribbon: #B91C1C;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--paper); color: var(--ink); font-family: 'Noto Sans Malayalam', sans-serif; line-height: 1.7; overflow-x: hidden; }
-  .fun { font-family: 'Baloo Chettan 2', 'Noto Sans Malayalam', sans-serif; }
+  body { background: var(--paper); color: var(--ink); font-family: 'Noto Sans Malayalam', 'Anek Malayalam', 'Manjari', sans-serif; line-height: 1.8; overflow-x: hidden; text-rendering: optimizeLegibility; }
+  .fun { font-family: 'Baloo Chettan 2', 'Anek Malayalam', 'Noto Sans Malayalam', sans-serif; }
+  h1.title, h2.ctitle, .meme .punch { line-height: 1.6; padding-top: .12em; }
   .wrap { max-width: 860px; margin: 0 auto; padding: 0 20px 80px; }
   .eaves { height: 14px; background: linear-gradient(90deg, var(--ink), #9A3412, var(--ink)); border-bottom: 2px solid #2E1002; }
   .ribbon-top { height: 5px; background: linear-gradient(90deg, #991B1B, #DC2626, #991B1B); }
@@ -66,6 +67,17 @@
   @keyframes wig { 0%,100% { transform: rotate(-6deg); } 50% { transform: rotate(6deg); } }
   .floaty { display: inline-block; animation: floaty 3s ease-in-out infinite; }
   @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+  .memewall { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 14px; }
+  @media (min-width: 640px) { .memewall { grid-template-columns: 1fr 1fr; } }
+  .meme { background: #141414; color: #fff; border-radius: 16px; padding: 20px 18px; border: 4px solid #fff; box-shadow: 0 8px 0 rgba(0,0,0,.22); }
+  .meme .top { font-size: .78rem; font-weight: 800; opacity: .8; margin-bottom: 10px; letter-spacing: .06em; }
+  .meme .punch { font-size: 1.18rem; font-weight: 700; }
+  .meme.light { background: #fff; color: var(--ink); border-color: var(--ink); }
+  .meme .no { opacity: .5; text-decoration: line-through; }
+  .meme .yes { color: #FBBF24; }
+  .meme.light .yes { color: var(--seal); }
+  .blooper { display: flex; gap: 10px; align-items: flex-start; background: #fff; border: 2px dashed var(--ribbon); border-radius: 12px; padding: 10px 14px; font-size: .88rem; margin-top: 10px; }
+  .blooper .e { font-size: 1.2rem; line-height: 1.4; }
 </style>
 </head>
 <body>
@@ -142,6 +154,15 @@
   </section>
 
   <section class="chapter">
+    <span class="day-tag">അർദ്ധരാത്രി · THE MIDNIGHT INSPECTION</span>
+    <h2 class="ctitle fun">The night the mentors laughed</h2>
+    <p>Around midnight the hall went quiet except for our corner — timer ticking, robot Kuttappan shouting half-finished Malayalam, a president who could die of potholes. The game was barely half-built. Then the mentors came on their rounds. Then the staff coordinators. We showed them the mess: the evidence board, the mugshot newspaper, the elephant that had just been fired from the stats.</p>
+    <p>They laughed. Not the polite kind — the real kind, the kind that makes neighbouring tables turn around. And then came the sentence that rewired the entire night: <b>"ഇതിന് ജയിക്കാൻ കഴിയും — this can actually win."</b> Two dead-eyed developers rebooted on the spot. Somebody's 2 AM restarted. Kuttappan filed it under <i>Exhibit: Hope</i>.</p>
+    <p>Word travelled fast. Soon other participants were drifting to our desks — <i>"bro, how are you building like THIS?"</i> — asking how the voices chained together, how the newspaper accused whoever clicked fastest, how an entire government fit inside one reducer. We demoed between timer ticks. They laughed. They took notes. For about an hour at midnight, Chakkumvila was the capital of the hackathon.</p>
+    <div class="kuttappan"><span class="face">🍵</span><span><b class="who">കുട്ടപ്പൻ, ചായ കണക്ക്</b>"മെന്റർമാർക്ക് ചായ കൊടുക്കാൻ ഖജനാവിൽ കാശില്ലായിരുന്നു സർ. അതുകൊണ്ട് കടമായി എഴുതി വെച്ചു."</span></div>
+  </section>
+
+  <section class="chapter">
     <span class="day-tag">അധ്യായം 8 · BUG HUNT DIARIES</span>
     <h2 class="ctitle fun">Three ghosts, three exorcisms</h2>
     <div class="buggrid">
@@ -180,6 +201,39 @@
   </section>
 
   <section class="chapter">
+    <span class="day-tag">മീമുകൾ · THE MEME WALL</span>
+    <h2 class="ctitle fun">Official propaganda of the republic</h2>
+    <p>Every great government runs on messaging. Ours ran on these, taped to the wall above the laptops:</p>
+    <div class="memewall">
+      <div class="meme">
+        <div class="top">SOLVING REAL PROBLEMS</div>
+        <div class="punch no">❌ Pitch decks &amp; "impact"</div>
+        <div class="punch yes">✅ An elephant union demanding Spotify</div>
+      </div>
+      <div class="meme light">
+        <div class="top">POV: YOU ARE THE OPPOSITION</div>
+        <div class="punch">It's Day 4. The president just donated his own house for a wedding. Your no-confidence motion is at 20. You are applauding. Wrong side, buddy.</div>
+      </div>
+      <div class="meme">
+        <div class="top">THE PRESIDENT (DISTRACTED)</div>
+        <div class="punch">🚶 Me &nbsp; 👀 Real governance &nbsp; 💃 Declaring potholes heritage sites for tourist money</div>
+      </div>
+      <div class="meme light">
+        <div class="top">MENTORS AT MIDNIGHT, WATCHING OUR HALF-BUILT GAME</div>
+        <div class="punch">"This can actually win."<br/>Us, running on 0% battery and 100% potholes: 🪑👑🐘</div>
+      </div>
+      <div class="meme">
+        <div class="top">EXPECTATION vs REALITY</div>
+        <div class="punch">Expectation: sleep, plan, clean code.<br/>Reality: recording elephant negotiations into a phone at 2 AM.</div>
+      </div>
+      <div class="meme light">
+        <div class="top">ME EXPLAINING THE GAME TO NEW PEOPLE</div>
+        <div class="punch">"So the timer hits zero and—"<br/>Them: "Say no more. Where do we vote?"</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter">
     <span class="day-tag">പഠിച്ച പാഠങ്ങൾ · LEARNINGS</span>
     <h2 class="ctitle fun">What the panchayat taught us</h2>
     <div class="learn">
@@ -190,6 +244,17 @@
       <div><b>SVG sprites:</b> five moods of a clerk drawn in ~100 lines of SVG beat any emoji — and weigh nothing.</div>
       <div><b>Git under fire:</b> fetch → read the diff → rebase → push. Never force-push a shared hackathon repo.</div>
     </div>
+  </section>
+
+  <section class="chapter">
+    <span class="day-tag">NG ടേക്കുകൾ · BLOOPERS</span>
+    <h2 class="ctitle fun">Filed under "oops"</h2>
+    <div class="blooper"><span class="e">🎙️</span><span>Recorded a wrong-answer sting at whisper volume (-19.9 dB). Boosted +18.9 dB. Democracy restored at full volume.</span></div>
+    <div class="blooper"><span class="e">🐘</span><span>Composed a majestic conch fanfare. Every tester heard an elephant. Retired with full honours.</span></div>
+    <div class="blooper"><span class="e">👻</span><span>Chrome cancelled our speech and threw a ghost concert on the next screen. Exorcised with token guards.</span></div>
+    <div class="blooper"><span class="e">🗑️</span><span>Deleted the research file twice. It had it coming. (It survives in git history.)</span></div>
+    <div class="blooper"><span class="e">🪑</span><span>Gave Kuttappan the chair in four different endings. He has stopped returning our calls.</span></div>
+    <div class="blooper"><span class="e">📣</span><span>Built an opposition meter so aggressive it nearly impeached us during testing. Working as intended.</span></div>
   </section>
 
   <section class="chapter">
@@ -234,6 +299,7 @@
     <div class="marigold"></div>
     <div class="big fun"><span class="wiggle">🐘</span> ഫയൽ 420 അടച്ചു. <span class="floaty">🪑</span></div>
     <p style="margin-top:8px">Built with chaos by <b>Team Zero Blunders</b> for TinkerHub Useless Projects 3.0 · <a href="https://github.com/The-Peacemaker/Panchayath-Simulation">Repo</a> · <a href="https://panchayath-president.netlify.app/">Play</a></p>
+    <p style="margin-top:12px;font-size:.92rem"><i>P.S. Dear judges — if laughter is a metric, File 420 already won. A hardware kit would just make it official. — Kuttappan (clerk, witness, future administrator)</i></p>
   </footer>
 </div>
 </body>
