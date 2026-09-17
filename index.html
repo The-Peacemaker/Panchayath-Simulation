@@ -422,14 +422,19 @@
   });
   audio.addEventListener('play', render);
   audio.addEventListener('pause', render);
-  // Browsers block audible autoplay: begin on the first tap anywhere (once),
-  // unless the reader previously switched it off.
+  // ON by default for everyone: try playing the instant the page loads
+  // (works where the browser allows it). Where autoplay is blocked, begin
+  // on the first tap anywhere (once). A saved 'off' choice is respected.
+  function kickoff() {
+    if (want === 'off') { render(); return; }
+    audio.play().then(render).catch(function () { render(); });
+  }
   function firstTouch() {
     document.removeEventListener('pointerdown', firstTouch);
     if (want !== 'off' && audio.paused) { audio.play().then(render).catch(function () {}); }
   }
   document.addEventListener('pointerdown', firstTouch);
-  render();
+  kickoff();
 })();
 </script>
 </body>
