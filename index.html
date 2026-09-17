@@ -1,21 +1,240 @@
 <!DOCTYPE html>
 <html lang="ml">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>പഞ്ചായത്ത് പ്രസിഡന്റ് SIMULATOR — ചക്കുംവള ഗ്രാമപഞ്ചായത്ത്</title>
-    <meta name="description" content="നിങ്ങൾ ചക്കുംവള ഗ്രാമപഞ്ചായത്തിന്റെ പുതിയ പ്രസിഡന്റ്! 5 ദിവസം ഭരിക്കൂ. ജനങ്ങളെയും ഖജനാവിനെയും ആനയെയും സംരക്ഷിക്കൂ!" />
-    
-    <!-- Google Fonts: Anek Malayalam, Gayathri, Manjari, Noto Sans Malayalam -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@500;600;700;800&family=Anek+Malayalam:wght@400;500;600;700;800&family=Gayathri:wght@400;700&family=Manjari:wght@400;700&family=Noto+Sans+Malayalam:wght@400;500;600;700;800;900&family=Cinzel:wght@700;900&display=swap" rel="stylesheet">
-    
-    <!-- Favicon icon with Kerala palm / temple motif -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>" />
-  </head>
-  <body class="bg-kerala-bg text-kerala-wood font-malayalam antialiased selection:bg-kerala-gold selection:text-kerala-darkwood min-h-screen">
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ഫയൽ നം. 420 — പഞ്ചായത്ത് പ്രസിഡന്റ് Project Journal | Zero Blunders</title>
+<meta name="description" content="Project journal: how Team Zero Blunders built the Panchayat President Simulator for TinkerHub Useless Projects 3.0 — day by day, bug by bug." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@500;600;700;800&family=Noto+Sans+Malayalam:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FDFBF5; --parchment: #FBF5E6; --ink: #451A03; --wood: #78350F;
+    --gold: #D97706; --gold-soft: #FEF3C7; --seal: #047857; --ribbon: #B91C1C;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--paper); color: var(--ink); font-family: 'Noto Sans Malayalam', sans-serif; line-height: 1.7; overflow-x: hidden; }
+  .fun { font-family: 'Baloo Chettan 2', 'Noto Sans Malayalam', sans-serif; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 20px 80px; }
+  .eaves { height: 14px; background: linear-gradient(90deg, var(--ink), #9A3412, var(--ink)); border-bottom: 2px solid #2E1002; }
+  .ribbon-top { height: 5px; background: linear-gradient(90deg, #991B1B, #DC2626, #991B1B); }
+  header.hero { text-align: center; padding: 48px 20px 30px; position: relative; }
+  .govt-line { display: inline-block; background: var(--seal); color: #fff; font-size: 12px; font-weight: 700; padding: 4px 14px; border-radius: 999px; letter-spacing: .08em; margin-bottom: 14px; }
+  h1.title { font-size: clamp(2rem, 6vw, 3.4rem); font-weight: 800; color: #2E1002; line-height: 1.25; }
+  .subtitle { color: var(--wood); font-weight: 600; margin-top: 6px; font-size: 1.05rem; }
+  .stamp { display: inline-block; border: 3px dashed var(--seal); color: var(--seal); font-weight: 800; padding: 6px 16px; border-radius: 8px; transform: rotate(-4deg); margin: 18px 6px 0; font-size: .9rem; letter-spacing: .05em; background: rgba(4,120,87,.06); }
+  .stamp.red { border-color: var(--ribbon); color: var(--ribbon); background: rgba(185,28,28,.06); transform: rotate(3deg); }
+  .meta { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 22px; }
+  .meta a, .meta span.tag { font-size: .85rem; font-weight: 700; background: var(--gold-soft); border: 2px solid var(--gold); color: var(--wood); padding: 6px 14px; border-radius: 999px; text-decoration: none; }
+  .meta a:hover { background: var(--gold); color: #fff; }
+  .marigold { height: 6px; border-radius: 99px; margin: 26px 0; background: repeating-linear-gradient(90deg,#F59E0B 0 14px,#DC2626 14px 20px,#FBBF24 20px 34px,#047857 34px 40px); opacity: .85; }
+  section.chapter { background: linear-gradient(180deg,#FFFDF0,#FAF3E0); border: 3px solid var(--wood); border-radius: 18px; padding: 26px 26px 22px; margin-bottom: 26px; box-shadow: 0 10px 25px -8px rgba(69,26,3,.35); position: relative; }
+  .day-tag { display: inline-block; font-size: .75rem; font-weight: 800; background: var(--ink); color: var(--gold-soft); padding: 3px 12px; border-radius: 999px; letter-spacing: .06em; margin-bottom: 10px; }
+  h2.ctitle { font-size: 1.45rem; font-weight: 800; color: #2E1002; margin-bottom: 8px; }
+  section.chapter p { font-size: .98rem; color: #4a2c12; margin-bottom: 10px; }
+  section.chapter p:last-child { margin-bottom: 0; }
+  .kuttappan { display: flex; gap: 12px; align-items: flex-start; background: #fff; border: 2px solid #E8D8B8; border-left: 5px solid var(--gold); border-radius: 12px; padding: 12px 14px; margin: 12px 0; font-style: italic; font-size: .93rem; }
+  .kuttappan .face { font-size: 1.8rem; line-height: 1; }
+  .kuttappan b.who { display: block; font-style: normal; font-size: .75rem; color: var(--wood); letter-spacing: .04em; }
+  code.commit { font-family: monospace; font-size: .8rem; background: #2E1002; color: #FBBF24; padding: 1px 7px; border-radius: 6px; }
+  .buggrid { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 12px; }
+  @media (min-width: 640px) { .buggrid { grid-template-columns: 1fr 1fr; } }
+  .bug { background: #fff; border: 2px solid #E8D8B8; border-radius: 14px; padding: 16px; }
+  .bug h3 { font-size: 1.02rem; margin-bottom: 6px; }
+  .bug .row { font-size: .86rem; margin-bottom: 4px; }
+  .bug .k { font-weight: 800; color: var(--ribbon); }
+  .bug .f { font-weight: 800; color: var(--seal); }
+  .learn { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 12px; }
+  @media (min-width: 640px) { .learn { grid-template-columns: 1fr 1fr; } }
+  .learn div { background: #fff; border-radius: 12px; border: 2px solid #E8D8B8; padding: 12px 14px; font-size: .9rem; }
+  .learn b { color: var(--wood); }
+  .team { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 12px; }
+  @media (min-width: 640px) { .team { grid-template-columns: 1fr 1fr; } }
+  .mate { background: #fff; border: 2px solid var(--gold); border-radius: 14px; padding: 16px; text-align: center; }
+  .mate .avatar { font-size: 2.6rem; }
+  .mate h3 { font-size: 1.1rem; }
+  .mate .role { font-size: .78rem; font-weight: 800; color: var(--seal); letter-spacing: .05em; }
+  .mate p { font-size: .86rem; margin-top: 6px; }
+  .gallery { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 14px; }
+  .gallery figure { background: #fff; border: 2px solid #E8D8B8; border-radius: 14px; overflow: hidden; }
+  .gallery img { width: 100%; display: block; }
+  .gallery figcaption { padding: 10px 14px; font-size: .85rem; font-weight: 600; color: var(--wood); }
+  footer.fin { text-align: center; padding: 30px 20px 10px; }
+  footer.fin .big { font-size: 1.6rem; font-weight: 800; }
+  .wiggle { display: inline-block; animation: wig 1.4s ease-in-out infinite; }
+  @keyframes wig { 0%,100% { transform: rotate(-6deg); } 50% { transform: rotate(6deg); } }
+  .floaty { display: inline-block; animation: floaty 3s ease-in-out infinite; }
+  @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+</style>
+</head>
+<body>
+<div class="ribbon-top"></div>
+<div class="eaves"></div>
+
+<header class="hero wrap" style="padding-bottom:0">
+  <span class="govt-line">കേരള സർക്കാർ • പഞ്ചായത്ത് രേഖാശേഖരം</span>
+  <h1 class="title fun">ഫയൽ നം. 420:<br/>ഒരു പ്രസിഡന്റിനെ<br/>ഉണ്ടാക്കിയ വിധം</h1>
+  <p class="subtitle">Project Journal — പഞ്ചായത്ത് പ്രസിഡന്റ് Simulator · Team Zero Blunders · Useless Projects 3.0</p>
+  <div>
+    <span class="stamp">ശേഖരിച്ചത്: പ്യൂൺ കുട്ടപ്പൻ</span>
+    <span class="stamp red">അതീവ രഹസ്യം (അല്ല)</span>
+  </div>
+  <div class="meta">
+    <a href="https://github.com/The-Peacemaker/Panchayath-Simulation">GitHub Repo</a>
+    <a href="https://panchayath-president.netlify.app/">Play the Game</a>
+    <span class="tag">Benedict + Dipin · VJCET Vazhakulam</span>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="marigold"></div>
+
+  <section class="chapter">
+    <span class="day-tag">അധ്യായം 0 · THE CALL</span>
+    <h2 class="ctitle fun">It started with the folder name</h2>
+    <p>Someone named a folder <code class="commit">USELESS-PROJECT</code> and suddenly we were researching TinkerHub's most unserious hackathon like it was a UPSC exam. Deep dive done, we struck gold in the official handbook: judging is <b>60% creativity, 20% implementation complexity, 20% cross-disciplinary approach</b>. Translation — the IDEA is the whole game. No pitch decks. No "real-world impact". Just one night and whatever wonderfully pointless thing comes to mind.</p>
+    <div class="kuttappan"><span class="face">👨‍💼</span><span><b class="who">കുട്ടപ്പൻ, ഫയൽ എഴുത്തുകാരൻ</b>"സാർ, 60% ക്രിയേറ്റിവിറ്റി എന്ന് കേട്ടപ്പോൾ തന്നെ എനിക്ക് മനസ്സിലായി — ഇത് നമ്മുടെ പണിയാണ്."</span></div>
+  </section>
+
+  <section class="chapter">
+    <span class="day-tag">അധ്യായം 1 · FIVE IDEAS, ONE CHAIR</span>
+    <h2 class="ctitle fun">Brainstorming the uselessness</h2>
+    <p>We drafted five concepts — a chai-locking machine, an Amma chatbot, an over-engineered canteen app, a mystery ARG app, an AI that judges your surroundings. All software-only, all Malayalam-soaked. Then somebody said the magic words: <b>"Panchayat President Simulator"</b> — a game where YOU run a Kerala village into the ground, one sarcastic decision at a time. Fully Malayalam audio and text. Timer ticking. No correct answers, only funny ones. Locked in minutes.</p>
+  </section>
+
+  <section class="chapter">
+    <span class="day-tag">അധ്യായം 2 · FOUNDATION</span>
+    <h2 class="ctitle fun">Scaffold first, comedy second</h2>
+    <p>Vite + React 18 + Tailwind. A tiny <code class="commit">useReducer</code> game engine (~150 lines) drives everything: HOME → OATH → DAY ×5 → CONSEQUENCE → ENDING. Stats, timers, endings, a "Wall of Presidents" in localStorage. Committed as <code class="commit">4a969f2</code> scaffold, then <code class="commit">a134065</code> engine. The skeleton was up in hours — the soul took much longer.</p>
+  </section>
+
+  <section class="chapter">
+    <span class="day-tag">അധ്യായം 3 · THE WRITING ROOM</span>
+    <h2 class="ctitle fun">Six crises, zero mercy</h2>
+    <p>Water mafia. Street-dog unions. Exam-eve blackouts. One hall, two weddings. A collector inspection final boss (plus a festival-fund scandal spare). Every option stuffed with Malayalam cinema references — Lucifer mass entries, Drishyam register frauds, Kilukkam mass weddings, Sandesham-style protests. The house rule for writing: <b>no option may be clearly right, and every option must hurt something.</b> The comedy IS the dilemma.</p>
+    <div class="kuttappan"><span class="face">😅</span><span><b class="who">കുട്ടപ്പൻ</b>"സർ, ലൂസിഫർ സ്റ്റൈലിൽ ടാങ്കർ കൊണ്ടുവന്നാൽ ഖജനാവ് കാലിയാകും. പക്ഷേ എൻട്രി ഗംഭീരമായിരിക്കും."</span></div>
+  </section>
+
+  <section class="chapter">
+    <span class="day-tag">അധ്യായം 4 · THE GREAT STAT SWAP</span>
+    <h2 class="ctitle fun">Killing our darlings (elephant joy + amma approval)</h2>
+    <p>Playtesting hurt: four stats were too much to read, and two of them (elephant happiness, amma approval) never decided anything. So we executed them and crowned a single replacement — <b>പ്രതിപക്ഷം (Opposition)</b>, starting at 20, killing you at 100 via no-confidence motion. Manikandan the elephant survived as mascot, but now he <i>joins the protest</i> when opposition crosses 70. Fewer meters, ten times the tension.</p>
+  </section>
+
+  <section class="chapter">
+    <span class="day-tag">അധ്യായം 5 · THE EXPLOIT</span>
+    <h2 class="ctitle fun">The day we caught ourselves winning</h2>
+    <p>Disaster: stupid decisions kept winning. Joke options secretly gave support points, the hero ending ignored opposition entirely, and one honest Day-5 pick erased all sins. So we did the most over-engineered thing possible — <b>wrote a Node script that simulated 8 full playstyles</b> through the real game data. Splurge-everything: dead Day 5, bankrupt. Total silence: dead Day 4. Evil genius run: Commission King at opposition 90. Smart mix: hero by exact margins. Balance v3 shipped with proof, not vibes.</p>
+    <div class="kuttappan"><span class="face">😎</span><span><b class="who">കുട്ടപ്പൻ</b>"കണക്ക് പറഞ്ഞു സർ — മിണ്ടാതിരുന്നാൽ മരണം. ഇത് ജനാധിപത്യമല്ല, ഗണിതമാണ്."</span></div>
+  </section>
+
+  <section class="chapter">
+    <span class="day-tag">അധ്യായം 6 · DECLUTTER + SPRITES</span>
+    <h2 class="ctitle fun">Two Kuttappans walk into a screen…</h2>
+    <p>…and one had to go. The Day screen had twin Kuttappans, cards inside cards, labels shouting over the actual story. We merged everything into ONE briefing card, shrank the timer to a slim pill, and replaced every emoji face with a <b>hand-drawn SVG sprite cast</b> — Kuttappan with five mood faces (cool, worried, panic, shock, X-eyed dead), Manikandan with three states (sleeping with Z's, calm, rampaging), plus a smiling coconut mascot for the header. Zero image dependencies, infinite charm.</p>
+  </section>
+
+  <section class="chapter">
+    <span class="day-tag">അധ്യായം 7 · FINDING THE VOICE</span>
+    <h2 class="ctitle fun">13 clips of pure Malayalam chaos</h2>
+    <p>Then came the recordings — welcome speech, pledge reaction, day transitions, rotating wrong/correct-answer stingers, three ending speeches — all performed with full overacting. We built a slot-map engine (<code class="commit">voiceLines.js</code>, 47 slots) where dropping an MP3 into a folder wires it into the game with zero code changes, chained playback (sting → briefing → verdict), a verdict scorer that decides praise vs roast, and TTS fallback so nothing is ever silent. Then ffmpeg told us one clip peaked at <b>-19.9 dB</b> — a whisper. Boosted +18.9 dB, then peak-normalized all 12 clips to the same level. Democracy of decibels.</p>
+  </section>
+
+  <section class="chapter">
+    <span class="day-tag">അധ്യായം 8 · BUG HUNT DIARIES</span>
+    <h2 class="ctitle fun">Three ghosts, three exorcisms</h2>
+    <div class="buggrid">
+      <div class="bug">
+        <h3 class="fun">🐘 The elephant that wasn't</h3>
+        <p class="row"><span class="k">Symptom:</span> clicking Take Charge played a sound suspiciously like an elephant trumpet.</p>
+        <p class="row"><span class="k">Culprit:</span> our synth conch horn (210→285 Hz sweep). Majestic. Pachyderm-adjacent.</p>
+        <p class="row"><span class="f">Fix:</span> retired the conch from that moment — the recorded welcome speech owns it now.</p>
+      </div>
+      <div class="bug">
+        <h3 class="fun">👻 The phantom sting</h3>
+        <p class="row"><span class="k">Symptom:</span> wrong-answer audio leaked onto fresh option screens nobody had touched yet.</p>
+        <p class="row"><span class="k">Culprit:</span> Chrome fires <i>onend</i> even for <i>cancelled</i> speech — clicking through mid-roast ghost-triggered the chained sting.</p>
+        <p class="row"><span class="f">Fix:</span> token-guarded every voice callback; cancelled chains die silently. Class of leak: extinct.</p>
+      </div>
+      <div class="bug">
+        <h3 class="fun">🔇 The silent welcome</h3>
+        <p class="row"><span class="k">Symptom:</span> intro recording never played; robot voice covered for it.</p>
+        <p class="row"><span class="k">Culprit:</span> absolute <code class="commit">/voice/…</code> path 404'd outside domain-root hosting.</p>
+        <p class="row"><span class="f">Fix:</span> Vite <code class="commit">base: './'</code> — relative paths everywhere, verified 200 + audio/mpeg over HTTP.</p>
+      </div>
+      <div class="bug">
+        <h3 class="fun">⚖️ The rigged election</h3>
+        <p class="row"><span class="k">Symptom:</span> every playstyle won. Democracy felt fake.</p>
+        <p class="row"><span class="k">Culprit:</span> joke options paid support points; hero ending ignored opposition.</p>
+        <p class="row"><span class="f">Fix:</span> the 8-playstyle simulation above. Math restored faith in the republic.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter">
+    <span class="day-tag">അധ്യായം 9 · SHIPPING</span>
+    <h2 class="ctitle fun">Five commits and a rebase survival story</h2>
+    <p>Shipped in honest feature batches — scaffold, engine, screens, voices, docs — then survived a real-world scare: the remote had moved (teammate's README edit), push rejected, fetched, rebased cleanly, pushed green. Live on Netlify, README carries the template format, screenshots, mermaid diagrams and the live link. The president's portrait (<code class="commit">president.jpg</code>) now defaults into every newspaper wanted-box.</p>
+    <div class="kuttappan"><span class="face">💀</span><span><b class="who">കുട്ടപ്പൻ, പുതിയ അഡ്മിനിസ്ട്രേറ്റർ (താത്കാലികം)</b>"കസേര കിട്ടി സർ. പക്ഷേ ഫയൽ 420 ഒരിക്കലും അടയ്ക്കില്ല."</span></div>
+  </section>
+
+  <section class="chapter">
+    <span class="day-tag">പഠിച്ച പാഠങ്ങൾ · LEARNINGS</span>
+    <h2 class="ctitle fun">What the panchayat taught us</h2>
+    <div class="learn">
+      <div><b>Web Audio API:</b> synthesized a conch, chenda drums, a Mohanam-raga jingle and a sad trombone from raw oscillators — no audio files needed.</div>
+      <div><b>SpeechSynthesis quirks:</b> Chrome fires <i>onend</i> on cancelled speech; Malayalam voice availability varies by machine — always build fallbacks.</div>
+      <div><b>Balance is math:</b> simulating playstyles through real game data beats gut feeling. Steal this trick for every game jam.</div>
+      <div><b>Vite base paths:</b> absolute asset URLs silently die off-domain-root. <code class="commit">base: './'</code> is one line of invincibility.</div>
+      <div><b>SVG sprites:</b> five moods of a clerk drawn in ~100 lines of SVG beat any emoji — and weigh nothing.</div>
+      <div><b>Git under fire:</b> fetch → read the diff → rebase → push. Never force-push a shared hackathon repo.</div>
+    </div>
+  </section>
+
+  <section class="chapter">
+    <span class="day-tag">ടീം · THE CABINET</span>
+    <h2 class="ctitle fun">Zero Blunders (most days)</h2>
+    <div class="team">
+      <div class="mate">
+        <div class="avatar">👨‍💻</div>
+        <h3 class="fun">Benedict Chacko Mathew</h3>
+        <div class="role">TEAM LEAD · VJCET VAZHAKULAM</div>
+        <p>Game architecture, state engine, balance math, audio/voice chaining engine, UI theme, SVG sprite cast, git wrangling, docs.</p>
+      </div>
+      <div class="mate">
+        <div class="avatar">✍️</div>
+        <h3 class="fun">Dipin Sunny</h3>
+        <div class="role">MEMBER · VJCET VAZHAKULAM</div>
+        <p>Story scenarios, Malayalam comedy writing, voice direction, playtesting, bug reports, README finishing.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter">
+    <span class="day-tag">തെളിവുകൾ · EVIDENCE</span>
+    <h2 class="ctitle fun">Gallery of governance</h2>
+    <div class="gallery">
+      <figure>
+        <img src="docs/screenshot-oath.png" alt="Oath ceremony screen" loading="lazy" />
+        <figcaption>Exhibit A — the oath ceremony: name, photo, and a vow nobody intends to keep.</figcaption>
+      </figure>
+      <figure>
+        <img src="docs/screenshot-day.png" alt="Day 1 gameplay screen" loading="lazy" />
+        <figcaption>Exhibit B — Day 1: water crisis, 22 seconds left, four terrible options.</figcaption>
+      </figure>
+      <figure>
+        <img src="docs/screenshot-ending.png" alt="Gulf President ending screen" loading="lazy" />
+        <figcaption>Exhibit C — the Gulf ending: fled at 2 AM, cashiering in peace. Respect.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <footer class="fin">
+    <div class="marigold"></div>
+    <div class="big fun"><span class="wiggle">🐘</span> ഫയൽ 420 അടച്ചു. <span class="floaty">🪑</span></div>
+    <p style="margin-top:8px">Built with chaos by <b>Team Zero Blunders</b> for TinkerHub Useless Projects 3.0 · <a href="https://github.com/The-Peacemaker/Panchayath-Simulation">Repo</a> · <a href="https://panchayath-president.netlify.app/">Play</a></p>
+  </footer>
+</div>
+</body>
 </html>
