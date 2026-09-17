@@ -88,6 +88,16 @@
   @keyframes wig { 0%,100% { transform: rotate(-6deg); } 50% { transform: rotate(6deg); } }
   .floaty { display: inline-block; animation: floaty 3s ease-in-out infinite; }
   @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+  .vclip { margin: 14px 0 4px; border-radius: 14px; overflow: hidden; border: 3px solid var(--wood); box-shadow: 0 8px 18px -6px rgba(69,26,3,.4); }
+  .vclip video { width: 100%; display: block; background: #000; }
+  .vclip figcaption { background: #fff; padding: 8px 14px; font-size: .82rem; font-weight: 600; color: var(--wood); border-top: 2px solid #E8D8B8; }
+  .vidgrid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 14px; }
+  @media (min-width: 640px) { .vidgrid { grid-template-columns: 1fr 1fr 1fr; } }
+  .vidgrid figure { background: #fff; border: 2px solid #E8D8B8; border-radius: 14px; overflow: hidden; }
+  .vidgrid video { width: 100%; display: block; background: #000; aspect-ratio: 4/3; object-fit: cover; }
+  .vidgrid figcaption { padding: 10px 12px; font-size: .8rem; font-weight: 700; color: var(--wood); }
+  .srclink { font-size: .78rem; color: var(--wood); margin-top: 10px; }
+  .srclink a { color: var(--seal); font-weight: 700; }
 </style>
 </head>
 <body>
@@ -206,8 +216,16 @@
     <span class="day-tag">അർദ്ധരാത്രി · THE MIDNIGHT INSPECTION (FULL FILE)</span>
     <h2 class="ctitle fun">The night the mentors laughed</h2>
     <p>Around midnight the hall went quiet except for our corner — timer ticking, robot Kuttappan shouting half-finished Malayalam, a president who could die of potholes. The game was barely half-built. Then the mentors came on their rounds. Then the staff coordinators. We showed them the mess: the evidence board, the mugshot newspaper, the elephant that had just been fired from the stats.</p>
+    <figure class="vclip">
+      <video autoplay loop muted playsinline preload="metadata" src="memes/awkward-demo.mp4"></video>
+      <figcaption>Exhibit: us, walking up with a half-built government and full confidence.</figcaption>
+    </figure>
     <p>They laughed. Not the polite kind — the real kind, the kind that makes neighbouring tables turn around. And then came the sentence that rewired the entire night: <b>"ഇതിന് ജയിക്കാൻ കഴിയും — this can actually win."</b> Two dead-eyed developers rebooted on the spot. Somebody's 2 AM restarted. Kuttappan filed it under <i>Exhibit: Hope</i>.</p>
     <p>Word travelled fast. Soon other participants were drifting to our desks — <i>"bro, how are you building like THIS?"</i> — asking how the voices chained together, how the newspaper accused whoever clicked fastest, how an entire government fit inside one reducer. We demoed between timer ticks. They laughed. They took notes. For about an hour at midnight, Chakkumvila was the capital of the hackathon.</p>
+    <figure class="vclip">
+      <video autoplay loop muted playsinline preload="metadata" src="memes/mentors-laugh.mp4"></video>
+      <figcaption>Exhibit: the laugh. (Sound on, in memory.)</figcaption>
+    </figure>
     <div class="kuttappan"><span class="face">🍵</span><span><b class="who">കുട്ടപ്പൻ, ചായ കണക്ക്</b>"മെന്റർമാർക്ക് ചായ കൊടുക്കാൻ ഖജനാവിൽ കാശില്ലായിരുന്നു സർ. അതുകൊണ്ട് കടമായി എഴുതി വെച്ചു."</span></div>
     <svg class="comic" viewBox="0 0 720 260" font-family="'Noto Sans Malayalam','Anek Malayalam',sans-serif" role="img" aria-label="Midnight inspection comic: mentors arrive, mentors laugh, mentors believe">
       <rect x="0" y="0" width="720" height="260" rx="12" fill="#141b33" />
@@ -288,6 +306,10 @@
       </div>
       <div class="bug">
         <h3 class="fun">⚖️ The rigged election</h3>
+        <figure class="vclip">
+          <video autoplay loop muted playsinline preload="metadata" src="memes/realization.mp4"></video>
+          <figcaption>Us, at 3:50 AM, realizing stupid decisions keep winning.</figcaption>
+        </figure>
         <p class="row"><span class="k">Symptom:</span> every playstyle won. Democracy felt fake.</p>
         <p class="row"><span class="k">Culprit:</span> joke options paid support points; hero ending ignored opposition.</p>
         <p class="row"><span class="f">Fix:</span> the 8-playstyle simulation above. Math restored faith in the republic.</p>
@@ -326,6 +348,23 @@
         <div class="punch">"So the timer hits zero and—"<br/>Them: "Say no more. Where do we vote?"</div>
       </div>
     </div>
+    <h2 class="ctitle fun" style="margin-top:22px">Live-action division</h2>
+    <p>Real reaction clips, captioned by the cabinet. Lightweight looping video (GIFs were eating megabytes like opposition eats treasury).</p>
+    <div class="vidgrid">
+      <figure>
+        <video autoplay loop muted playsinline preload="metadata" src="memes/timer-panic.mp4"></video>
+        <figcaption>POV: 22 seconds left and Kuttappan is STILL talking.</figcaption>
+      </figure>
+      <figure>
+        <video autoplay loop muted playsinline preload="metadata" src="memes/victory-dap.mp4"></video>
+        <figcaption>Us, the second Netlify went green. Dap up.</figcaption>
+      </figure>
+      <figure>
+        <video autoplay loop muted playsinline preload="metadata" src="memes/my-fault.mp4"></video>
+        <figcaption>Who deleted RESEARCH.md? Yeah. Me.</figcaption>
+      </figure>
+    </div>
+    <p class="srclink">Reaction clips via <a href="https://memes.co.in/">memes.co.in</a> (free for creators): <a href="https://memes.co.in/gif/ha-gay-gif/11631">Ha Gay</a> · <a href="https://memes.co.in/gif/ash-trevino-suddenly-realizes-gif/11594">Ash Realizes</a> · <a href="https://memes.co.in/gif/scared-dog-gif/11622">Scared Dog</a> · <a href="https://memes.co.in/gif/smiling-friends-dap-up-gif/11596">Dap Up</a> · <a href="https://memes.co.in/gif/pointing-at-self-meme-gif/11628">Pedro Points</a> · <a href="https://memes.co.in/gif/robert-pattinson-meme-gif/11610">Pattinson Walk</a></p>
     <h2 class="ctitle fun" style="margin-top:22px">Overnight starter pack</h2>
     <p>Standard issue kit for one (1) useless make-a-thon night. No refunds.</p>
     <div class="pack">
